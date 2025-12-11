@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Deliveries</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th>Disponible</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each deliveries}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{surname}}</td>
+                    <td>{{email}}</td>
+                    <td>{{status}}</td>
+                    <td>{{#if isAvailable}}Sí{{else}}No{{/if}}</td>
+                    <td>
+                        {{#if (eq status 'active')}}
+                        <a href="/admin/deliveries/toggle/{{_id}}" class="btn btn-sm btn-warning">Desactivar</a>
+                        {{else}}
+                        <a href="/admin/deliveries/toggle/{{_id}}" class="btn btn-sm btn-success">Activar</a>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

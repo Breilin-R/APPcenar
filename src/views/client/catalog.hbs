@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <parameter name="card-body d-flex align-items-center">
+                <img src="{{commerce.commerceLogo}}" alt="{{commerce.commerceName}}" class="rounded-circle me-3"
+                    style="width: 64px; height: 64px; object-fit: cover;">
+                <div>
+                    <h2>{{commerce.commerceName}}</h2>
+                    <p class="mb-0 text-muted">Horario: {{commerce.openingTime}} - {{commerce.closingTime}}</p>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h3>Menú</h3>
+        {{#if products.length}}
+        {{#each products}}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{image}}" class="img-fluid rounded-start" alt="{{name}}"
+                        style="height: 100%; object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-text"><small class="text-muted">Categoría: {{category.name}}</small></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="text-primary mb-0">RD$ {{price}}</h5>
+                            <form action="/client/cart/add" method="POST" class="d-flex align-items-center">
+                                <input type="hidden" name="productId" value="{{_id}}">
+                                <input type="number" name="quantity" value="1" min="1"
+                                    class="form-control form-control-sm me-2" style="width: 60px;">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-plus me-1"></i>Agregar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            Este comercio aún no tiene productos disponibles.
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card sticky-top" style="top: 20px;">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Tu Carrito</h5>
+            </div>
+            <div class="card-body">
+                {{#if cart.length}}
+                <ul class="list-group list-group-flush mb-3">
+                    {{#each cart}}
+                    <li class="list-group-item px-0">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="mb-0">{{name}}</h6>
+                            <a href="/client/cart/remove/{{productId}}" class="text-danger">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a href="/client/cart/update/{{productId}}/decrease" class="btn btn-outline-secondary">
+                                    <i class="fas fa-minus"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary" disabled>{{quantity}}</button>
+                                <a href="/client/cart/update/{{productId}}/increase" class="btn btn-outline-secondary">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
+                            <div>
+                                <small class="text-muted">RD$ {{price}} c/u</small><br>
+                                <strong>RD$ {{total}}</strong>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                    <strong>Subtotal:</strong>
+                    <strong class="text-primary">RD$ {{cartSubtotal}}</strong>
+                </div>
+                <div class="d-grid gap-2">
+                    <a href="/client/checkout" class="btn btn-success">
+                        <i class="fas fa-credit-card me-2"></i>Proceder al Pago
+                    </a>
+                    <a href="/client/cart/clear" class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-trash me-2"></i>Vaciar Carrito
+                    </a>
+                </div>
+                {{else}}
+                <div class="text-center py-4">
+                    <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">Tu carrito está vacío</p>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

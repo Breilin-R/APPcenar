@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h1>Bienvenido, {{user.name}}</h1>
+        <p class="lead">¿Qué te gustaría comer hoy?</p>
+        <p class="text-muted">
+            <i class="fas fa-store me-2"></i>
+            <strong>{{commerces.length}}</strong> restaurantes disponibles
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    {{#if commerces.length}}
+    {{#each commerces}}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{commerceLogo}}" class="card-img-top" alt="{{commerceName}}"
+                style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title mb-0">{{commerceName}}</h5>
+                    {{#if isFavorite}}
+                    <a href="/client/favorites/remove/{{_id}}" class="text-danger" title="Quitar de favoritos">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    {{else}}
+                    <a href="/client/favorites/add/{{_id}}" class="text-muted" title="Agregar a favoritos">
+                        <i class="far fa-heart"></i>
+                    </a>
+                    {{/if}}
+                </div>
+                <p class="text-muted mb-2">
+                    <i class="fas fa-tag me-1"></i>{{commerceType.name}}
+                </p>
+                <p class="card-text">
+                    <i class="fas fa-clock me-1"></i>
+                    <small>{{openingTime}} - {{closingTime}}</small>
+                </p>
+                <a href="/client/commerce/{{_id}}" class="btn btn-primary w-100">
+                    <i class="fas fa-shopping-bag me-2"></i>Ver Menú
+                </a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="col-md-12">
+        <div class="alert alert-info text-center">
+            <i class="fas fa-info-circle me-2"></i>
+            No hay restaurantes disponibles en este momento.
+        </div>
+    </div>
+    {{/if}}
+</div>

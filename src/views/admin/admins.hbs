@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Administradores</h1>
+        <a href="/admin/admins/create" class="btn btn-primary mb-3">Crear Nuevo Admin</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each admins}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{surname}}</td>
+                    <td>{{email}}</td>
+                    <td>{{status}}</td>
+                    <td>
+                        <a href="/admin/admins/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
+                        {{#if (eq status 'active')}}
+                        <a href="/admin/admins/toggle/{{_id}}" class="btn btn-sm btn-warning">Desactivar</a>
+                        {{else}}
+                        <a href="/admin/admins/toggle/{{_id}}" class="btn btn-sm btn-success">Activar</a>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

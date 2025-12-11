@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>Detalle de Entrega #{{order._id}}</h3>
+                <span class="badge bg-{{#if (eq order.status 'in_process')}}info{{else}}success{{/if}} fs-6">
+                    {{order.status}}
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5>Recoger en (Comercio)</h5>
+                        <p><strong>{{order.commerce.commerceName}}</strong></p>
+                        <p>Tel: {{order.commerce.phone}}</p>
+                        <p>Email: {{order.commerce.email}}</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <h5>Entregar a (Cliente)</h5>
+                        <p><strong>{{order.client.name}} {{order.client.surname}}</strong></p>
+                        <p>Tel: {{order.client.phone}}</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <h5>Dirección de Entrega</h5>
+                    <p class="mb-0 fw-bold">{{order.address}}</p>
+                </div>
+
+                <h5>Productos</h5>
+                <ul class="list-group mb-4">
+                    {{#each order.products}}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">{{name}}</h6>
+                            <small class="text-muted">Cantidad: {{quantity}}</small>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+
+                <div class="row mb-4">
+                    <div class="col-md-12 text-end">
+                        <h4>Total a Cobrar: RD$ {{order.total}}</h4>
+                    </div>
+                </div>
+
+                {{#if (eq order.status 'in_process')}}
+                <div class="d-grid gap-2">
+                    <form action="/delivery/order/complete/{{order._id}}" method="POST">
+                        <button class="btn btn-success btn-lg w-100">Marcar como Entregado</button>
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+            <div class="card-footer text-muted text-center">
+                <a href="/delivery" class="btn btn-secondary">Volver al Panel</a>
+            </div>
+        </div>
+    </div>
+</div>

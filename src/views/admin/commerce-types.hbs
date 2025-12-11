@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Tipos de Comercio</h1>
+        <a href="/admin/commerce-types/create" class="btn btn-primary mb-3">Crear Nuevo Tipo</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each types}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{description}}</td>
+                    <td>
+                        <a href="/admin/commerce-types/edit/{{_id}}" class="btn btn-sm btn-info">Editar</a>
+                        <a href="/admin/commerce-types/delete/{{_id}}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

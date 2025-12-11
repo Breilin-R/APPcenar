@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">AppCenar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                {{#if user}}
+                {{#if isAdmin}}
+                <li class="nav-item"><a class="nav-link" href="/admin">Panel</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/clients">Clientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/deliveries">Deliveries</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/commerces">Comercios</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/commerce-types">Tipos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/admins">Admins</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin/config">Config</a></li>
+                {{/if}}
+                {{#if isClient}}
+                <li class="nav-item"><a class="nav-link" href="/client">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/client/profile">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="/client/orders">Pedidos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/client/addresses">Direcciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="/client/favorites">Favoritos</a></li>
+                {{/if}}
+                {{#if isCommerce}}
+                <li class="nav-item"><a class="nav-link" href="/commerce">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/commerce/profile">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link" href="/commerce/categories">Categorías</a></li>
+                <li class="nav-item"><a class="nav-link" href="/commerce/products">Productos</a></li>
+                {{/if}}
+                {{#if isDelivery}}
+                <li class="nav-item"><a class="nav-link" href="/delivery">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/delivery/profile">Perfil</a></li>
+                {{/if}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">Cerrar Sesión</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/register">Registrarse</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>

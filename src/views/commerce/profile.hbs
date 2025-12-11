@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Perfil del Comercio</h3>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <img src="{{commerce.commerceLogo}}" alt="Logo" class="rounded-circle"
+                        style="width: 150px; height: 150px; object-fit: cover;">
+                </div>
+                <form action="/commerce/profile" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label>Nombre del Comercio (No editable)</label>
+                        <input type="text" class="form-control" value="{{commerce.commerceName}}" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label>Teléfono</label>
+                        <input type="tel" name="phone" class="form-control" value="{{commerce.phone}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Correo</label>
+                        <input type="email" name="email" class="form-control" value="{{commerce.email}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Hora de Apertura</label>
+                        <input type="time" name="openingTime" class="form-control" value="{{commerce.openingTime}}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Hora de Cierre</label>
+                        <input type="time" name="closingTime" class="form-control" value="{{commerce.closingTime}}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Cambiar Logo</label>
+                        <input type="file" name="commerceLogo" class="form-control">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Actualizar Perfil</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

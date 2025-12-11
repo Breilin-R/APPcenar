@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Registro de Comercio</h3>
+            </div>
+            <div class="card-body">
+                <form action="/auth/register-commerce" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label>Nombre del Comercio</label>
+                        <input type="text" name="commerceName" class="form-control" value="{{commerceName}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Teléfono</label>
+                        <input type="tel" name="phone" class="form-control" value="{{phone}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" class="form-control" value="{{email}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Logo</label>
+                        <input type="file" name="commerceLogo" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Hora de Apertura</label>
+                        <input type="time" name="openingTime" class="form-control" value="{{openingTime}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Hora de Cierre</label>
+                        <input type="time" name="closingTime" class="form-control" value="{{closingTime}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Tipo de Comercio</label>
+                        <select name="commerceType" class="form-select" required>
+                            {{#each commerceTypes}}
+                            <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Confirmar Contraseña</label>
+                        <input type="password" name="confirm_password" class="form-control" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Registrarse</button>
+                        <a href="/auth/login" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

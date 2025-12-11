@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Mis Productos</h1>
+        <a href="/commerce/products/create" class="btn btn-primary mb-3">Crear Nuevo Producto</a>
+
+        {{#if products.length}}
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{image}}" class="card-img-top" alt="{{name}}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <p class="card-text"><strong>Precio:</strong> RD$ {{price}}</p>
+                        <p class="card-text"><small class="text-muted">Categoría: {{category.name}}</small></p>
+                        <a href="/commerce/products/edit/{{_id}}" class="btn btn-info btn-sm">Editar</a>
+                        <a href="/commerce/products/delete/{{_id}}" class="btn btn-danger btn-sm"
+                            onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="alert alert-info">No tienes productos creados.</div>
+        {{/if}}
+    </div>
+</div>

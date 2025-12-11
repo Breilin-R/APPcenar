@@ -1,0 +1,22 @@
+<div class="card h-100">
+    <img src="{{commerceLogo}}" class="card-img-top" alt="{{commerceName}}" style="height: 200px; object-fit: cover;">
+    <div class="card-body">
+        <h5 class="card-title">{{commerceName}}</h5>
+        <p class="card-text">Horario: {{openingTime}} - {{closingTime}}</p>
+        <a href="/client/commerce/{{_id}}" class="btn btn-primary">Ver Productos</a>
+        {{#if isFavorite}}
+        <a href="/client/favorites/remove/{{_id}}" class="btn btn-danger btn-sm float-end">Quitar Favorito</a>
+        {{else}}
+        <a href="/client/favorites/add/{{_id}}" class="btn btn-outline-danger btn-sm float-end">Agregar
+            Favorito</a>
+        {{/if}}
+    </div>
+</div>
+</div>
+{{/each}}
+{{else}}
+<div class="col-md-12">
+    <div class="alert alert-info">No se encontraron comercios.</div>
+</div>
+{{/if}}
+</div>

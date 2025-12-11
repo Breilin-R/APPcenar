@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Editar Admin</h3>
+            </div>
+            <div class="card-body">
+                <form action="/admin/admins/edit/{{admin._id}}" method="POST">
+                    <div class="mb-3">
+                        <label>Nombre</label>
+                        <input type="text" name="name" class="form-control" value="{{admin.name}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Apellido</label>
+                        <input type="text" name="surname" class="form-control" value="{{admin.surname}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Cédula</label>
+                        <input type="text" name="cedula" class="form-control" value="{{admin.cedula}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Correo</label>
+                        <input type="email" name="email" class="form-control" value="{{admin.email}}" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Actualizar Admin</button>
+                        <a href="/admin/admins" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

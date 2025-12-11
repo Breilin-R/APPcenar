@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Panel de Administración</h1>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Total de Pedidos</div>
+            <div class="card-body">
+                <h5 class="card-title">{{totalOrders}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Pedidos Hoy</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ordersToday}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">Total de Productos</div>
+            <div class="card-body">
+                <h5 class="card-title">{{totalProducts}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-header">Comercios</div>
+            <div class="card-body">
+                <p>Activos: {{activeCommerces}}</p>
+                <p>Inactivos: {{inactiveCommerces}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-header">Clientes</div>
+            <div class="card-body">
+                <p>Activos: {{activeClients}}</p>
+                <p>Inactivos: {{inactiveClients}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-header">Deliveries</div>
+            <div class="card-body">
+                <p>Activos: {{activeDeliveries}}</p>
+                <p>Inactivos: {{inactiveDeliveries}}</p>
+            </div>
+        </div>
+    </div>
+</div>

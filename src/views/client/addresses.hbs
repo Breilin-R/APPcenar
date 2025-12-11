@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Mis Direcciones</h1>
+        <a href="/client/addresses/create" class="btn btn-primary mb-3">Agregar Nueva Dirección</a>
+
+        {{#if addresses.length}}
+        <div class="row">
+            {{#each addresses}}
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <a href="/client/addresses/edit/{{_id}}" class="btn btn-info btn-sm">Editar</a>
+                        <a href="/client/addresses/delete/{{_id}}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="alert alert-info">No tienes direcciones registradas.</div>
+        {{/if}}
+    </div>
+</div>

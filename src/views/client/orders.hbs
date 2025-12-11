@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Mis Pedidos</h1>
+        {{#if orders.length}}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Comercio</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <td>{{_id}}</td>
+                        <td>{{date}}</td>
+                        <td>{{commerce.commerceName}}</td>
+                        <td>RD$ {{total}}</td>
+                        <td>
+                            <span
+                                class="badge bg-{{#if (eq status 'pending')}}warning{{else}}{{#if (eq status 'in_process')}}info{{else}}success{{/if}}{{/if}}">
+                                {{status}}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="/client/orders/{{_id}}" class="btn btn-primary btn-sm">Ver Detalles</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        {{else}}
+        <div class="alert alert-info">No has realizado ningún pedido aún.</div>
+        {{/if}}
+    </div>
+</div>

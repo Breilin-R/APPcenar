@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Categorías de Productos</h1>
+        <a href="/commerce/categories/create" class="btn btn-primary mb-3">Crear Nueva Categoría</a>
+
+        {{#if categories.length}}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Productos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each categories}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{description}}</td>
+                    <td>{{productCount}}</td>
+                    <td>
+                        <a href="/commerce/categories/edit/{{_id}}" class="btn btn-info btn-sm">Editar</a>
+                        <a href="/commerce/categories/delete/{{_id}}" class="btn btn-danger btn-sm"
+                            onclick="return confirm('¿Estás seguro? Esto podría afectar productos asociados.')">Eliminar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <div class="alert alert-info">No tienes categorías creadas.</div>
+        {{/if}}
+    </div>
+</div>

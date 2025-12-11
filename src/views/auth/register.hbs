@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Registro de Usuario</h3>
+            </div>
+            <div class="card-body">
+                <form action="/auth/register" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label>Nombre</label>
+                        <input type="text" name="name" class="form-control" value="{{name}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Apellido</label>
+                        <input type="text" name="surname" class="form-control" value="{{surname}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Teléfono</label>
+                        <input type="tel" name="phone" class="form-control" value="{{phone}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" class="form-control" value="{{email}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Nombre de Usuario</label>
+                        <input type="text" name="username" class="form-control" value="{{username}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Foto de Perfil</label>
+                        <input type="file" name="profileImage" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Rol</label>
+                        <select name="role" class="form-select">
+                            <option value="client">Cliente</option>
+                            <option value="delivery">Delivery</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Confirmar Contraseña</label>
+                        <input type="password" name="confirm_password" class="form-control" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Registrarse</button>
+                        <a href="/auth/login" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

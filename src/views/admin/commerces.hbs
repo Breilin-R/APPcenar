@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Comercios</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th>Pedidos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each commerces}}
+                <tr>
+                    <td>{{commerceName}}</td>
+                    <td>{{commerceType.name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{status}}</td>
+                    <td>{{orderCount}}</td>
+                    <td>
+                        {{#if (eq status 'active')}}
+                        <a href="/admin/commerces/toggle/{{_id}}" class="btn btn-sm btn-warning">Desactivar</a>
+                        {{else}}
+                        <a href="/admin/commerces/toggle/{{_id}}" class="btn btn-sm btn-success">Activar</a>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

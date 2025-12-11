@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Editar Categoría</h3>
+            </div>
+            <div class="card-body">
+                <form action="/commerce/categories/edit/{{category._id}}" method="POST">
+                    <div class="mb-3">
+                        <label>Nombre</label>
+                        <input type="text" name="name" class="form-control" value="{{category.name}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Descripción</label>
+                        <textarea name="description" class="form-control" rows="3">{{category.description}}</textarea>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Actualizar Categoría</button>
+                        <a href="/commerce/categories" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

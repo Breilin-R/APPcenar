@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3>Finalizar Pedido</h3>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Resumen del Pedido</h5>
+                <ul class="list-group mb-3">
+                    {{#each cart}}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">{{name}}</h6>
+                            <small class="text-muted">Cantidad: {{quantity}}</small>
+                        </div>
+                        <span class="text-muted">RD$ {{total}}</span>
+                    </li>
+                    {{/each}}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Subtotal (RD$)</span>
+                        <strong>{{subtotal}}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>ITBIS (18%)</span>
+                        <strong>{{itbis}}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <span class="text-success">Total (RD$)</span>
+                        <strong class="text-success">{{total}}</strong>
+                    </li>
+                </ul>
+
+                <form action="/client/checkout" method="POST">
+                    <h5 class="mb-3">Dirección de Envío</h5>
+                    {{#if addresses.length}}
+                    {{#each addresses}}
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="addressId" id="addr{{_id}}" value="{{_id}}"
+                            required>
+                        <label class="form-check-label" for="addr{{_id}}">
+                            <strong>{{name}}</strong>: {{description}}
+                        </label>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <div class="alert alert-warning">
+                        No tienes direcciones registradas. <a href="/client/addresses/create">Agrega una aquí</a>.
+                    </div>
+                    {{/if}}
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-success btn-lg" {{#unless addresses.length}}disabled{{/unless}}>Realizar
+                            Pedido</button>
+                        <a href="/client/commerce/{{commerceId}}" class="btn btn-secondary">Volver al Menú</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
