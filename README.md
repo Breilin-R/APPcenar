@@ -96,11 +96,11 @@ http://localhost:3000
 ## 👥 **Usuarios de Prueba**
 
 ### Admin
-- **Email:** admin@test.com
+- **Email:** admin@admin.com
 - **Contraseña:** 123
 
 ### Cliente
-- **Email:** cliente@test.com
+- **Email:** cliente_0@test.com
 - **Contraseña:** 123
 
 ### Comercio
